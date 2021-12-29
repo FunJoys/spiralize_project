@@ -45,14 +45,12 @@ def spiralize(n):
     print(num3)
 
     for m in range(len(num1)):
-        for k in range(num3[m], num1[m]):
+        for k in range(num3[m], num3[m]+num1[m]):
             print(num2[m], k)
             arr[num2[m], k] = 1
-        arr = np.rot90(arr, 1)
-    arr = np.rot90(arr, 1)
+        arr = np.rot90(arr)
+    arr = np.rot90(arr, n)
     print(arr)
 
 
-print(spiralize(11))
-
-
+print(spiralize(6))
