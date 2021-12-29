@@ -21,21 +21,38 @@ def spiralize(n):
                     n1 += [2]
         return n1
 
+    def rows(f, num1):
+        t = []
+        z = 0
+        b = True
+        while b:
+            for i in range(f):
+                if len(t) != len(num1):
+                    t.append(z)
+                else:
+                    b = False
+                    break
+            z += 2
+        return t
 
 
     arr = np.zeros(shape=(n, n))
     num1 = nums()
-    t = 1
-    for i in range(0, len(num1)):
-        if t == 4:
-            t -= 2
-        for j in range(num1[i]):
-            arr[0, j] = 1
+    num2 = rows(4, num1)
+    num3 = rows(5, num1)
+    print(num1)
+    print(num2)
+    print(num3)
+
+    for m in range(len(num1)):
+        for k in range(num3[m], num1[m]):
+            print(num2[m], k)
+            arr[num2[m], k] = 1
         arr = np.rot90(arr, 1)
-        t += 1
+    arr = np.rot90(arr, 1)
     print(arr)
 
 
-print(spiralize(10))
+print(spiralize(11))
 
 
